@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="background">
-        <div class="general1" style="display: block">
+        <div class="general1" id="chosingFase" style="display: block">
             <div class="fighters">
                 <div class="fighter" id="sonic" onclick="select('sonic')" ><img src="fightOfTheMasters/img/sonic.jpg" id="sonicPic"></div>
                 <div class="fighter" id="samus" onclick="select('samus')" ><img src="fightOfTheMasters/img/samus.jpg" id="samusPic"></div>
@@ -19,13 +19,15 @@
                 
             </div>  
             <div class="mensajeElegir">CHOOSE YOUR MASTERS!!!!</div>
-            <div class="personaje1"></div>
-            <div class="personaje2"></div>
+            <div id="personaje1"></div>
+            <div id="personaje2"></div>
             </div>
         </div>
-        <div class="general2" style="display: none">
-            <div class="guerrero1"></div>
-            <div class="guerrero2"></div>
+        <div class="general2" id="fightingFase" style="display: none">
+            <div class="guerrero1"><div class="stats1"></div>
+            </div>
+            <div class="guerrero2"><div class="stats2"></div>
+            </div>
             <div class="pegarClick" onclick="atk()">
         </div>
     </div>

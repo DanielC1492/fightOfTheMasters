@@ -1,43 +1,19 @@
-
 //Botón de ataque responde
 
-let atk = () =>{
+let atk = () => {
     alert("Está vivo!!!!");
 };
 
+let resetGame = () => {
+    let initHealth = 1000;
 
-
-//Seleccionar contrincantes funciona
-
-let select = (character) =>{
-    console.log("Has seleccionado a..." + character);
-    if(p1 = ""){
-        p1 = character;
-
-        document.getElementById(character).className = "selected";
-        document.getElementById(character).onclick = "";
-
-        let personaje1 = document.getElementById("personaje1");
-        personaje1.innerHTML = `You have chosen ${p1.name}`;
-    }else{
-        p2 = character;
-        
-        document.getElementById(character).className = "selected";
-        document.getElementById(character).onclick = "";
-
-        let mensaje2 = document.getElementById("personaje2");
-
-       // mensaje2.innerHTML = `You have chosen ${p2.name}`;
-        
-
-
-
-    };
+    player1.vida = initHealth;
+    player2.vida = initHealth;
 };
 
 //Clases
-class Leyenda{
-    constructor(name,health,strength,defense,agility,stamina,crit){
+class Leyenda {
+    constructor(name, health, strength, defense, agility, stamina, crit) {
         this.name = name;
         this.health = health;
         this.strength = strength;
@@ -46,11 +22,11 @@ class Leyenda{
         this.stamina = agility * (strength / 1.5);
     };
 
-    ataque(enemy){
-         enemy.health -= (this.strength - enemy.defense) * Math.floor(Math.random() * 6);
+    ataque(enemy) {
+        enemy.health -= (this.strength - enemy.defense) * Math.floor(Math.random() * 6);
     };
 
-    crit(enemy){
+    crit(enemy) {
         enemy.health -= (this.strength - enemy.defense) * this.stamina / Math.floor(Math.random() * 11);
     }
 };
@@ -62,10 +38,57 @@ let player2 = new Leyenda("samus", 1000, 250, 300, 300);
 let player3 = new Leyenda("mario", 1000, 200, 350, 200);
 let player4 = new Leyenda("megaman", 1000, 300, 200, 350);
 
+let select = (character) => {
+    //console.log("Has seleccionado a..." + character);
+    if (p1 == "") {
+        p1 = character;
+
+        document.getElementById(character).className = "selected";
+        document.getElementById(character).onclick = "";
+
+        let personaje1 = document.getElementById("personaje1");
+        personaje1.innerHTML = `You have chosen ${p1.name}`;
+    } else {
+        p2 = character;
+
+        document.getElementById(character).className = "selected";
+        document.getElementById(character).onclick = "";
+
+        let mensaje2 = document.getElementById("personaje2");
+
+        mensaje2.innerHTML = `You have chosen ${p2.name}`;
+
+
+    };
+};
+
+
+
 //variables
 
 let p1 = "";
 let p2 = "";
+
+//Seleccionar contrincantes funciona
+
+
+
+//funciones
+
+let fasingSwitch = (faseNow, Fasethen) => {
+    let chosingFase = document.getElementById(chosingFase);
+
+    let fightingFase = document.getElementById(fightingFase);
+
+
+    chosingFase.style.display = "none";
+    fightingFase.style.display = "block";
+};
+
+
+
+
+
 
 
 
