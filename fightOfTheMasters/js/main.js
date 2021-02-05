@@ -22,16 +22,16 @@ class Leyenda {
         this.strength = strength;
         this.defense = defense;
         this.agility = agility;
-        this.stamina = Math.floor(agility * (strength / 1.5));
+        this.stamina = Math.floor(agility + (strength / 1.5));
     };
 
     atack(enemy) {
-        enemy.health += (this.strength - enemy.defense) * Math.floor(Math.random() * 6);
+        enemy.health += this.strength - (enemy.defense / 0.5);
     };
 
     crit(enemy) {
-        enemy.health -= this.strength;
-    }
+        enemy.health -= this.strength + (this.stamina / 2);
+    };
 };
 
 //Instancias
@@ -57,10 +57,10 @@ let select = (playerTag) => {
 
         fasingSwitch("chosingFase", "fightingFase");
 
-        let guerrero1 = document.getElementById("guerrero1");
-        let guerrero2 = document.getElementById("guerrero2");
+        let warrior1 = document.getElementById("warrior1");
+        let warrior2 = document.getElementById("warrior2");
 
-        guerrero1.innerHTML = `<div id="guerrero_${p1.name}" class="estiloGuerrero" >
+        warrior1.innerHTML = `<div id="guerrero_${p1.name}" class="warriorStyle" >
             <img  src="fightOfTheMasters/img/${p1.name}.jpg">
             <div class="name">${p1.name}</div>
             <div class="health">${p1.health}</div>
@@ -70,7 +70,7 @@ let select = (playerTag) => {
             <div class="stamina">${p1.stamina}</div>
 
         </div>`;
-        guerrero2.innerHTML = `<div id="guerrero_${p2.name}" class="estiloGuerrero" >
+        warrior2.innerHTML = `<div id="guerrero_${p2.name}" class="warriorStyle" >
         <img  src="fightOfTheMasters/img/${p2.name}.jpg">
         <div class="name">${p2.name}</div>
         <div class="health">${p2.health}</div>
@@ -79,48 +79,70 @@ let select = (playerTag) => {
         <div class="agility">${p2.agility}</div>
         <div class="stamina">${p2.stamina}</div>
 
-    </div>`;
-
+        </div>`;
 
 
     };
 
     document.getElementById(playerTag).classList.add("selected");
     document.getElementById(playerTag).onclick = "";
+
+
 };
 
 
-let atk = () => {
-    let turn = Math.floor(Math.random() * 2);
-    let critAtk = Math.floor(Math.random() * 7);
 
-    if (turn = 0)  {
-        if (critAtk == 3) {
-            console.log("Critical Hit!!!");
+
+const resolveIn = delay =>
+    new Promise(res => setTimeout(() => res(delay), delay));
+
+//Funcion atacar
+
+let atk = () => {
+
+    let turno = Math.floor(Math.random() * 2);
+    let critHit = Math.floor(Math.random() * 5);
+
+    if (turno == 0) {
+        if (critHit == 3) {
+            console.log("Player 1 Crit hit");
             player1.crit(player2);
         } else {
 
             player1.atack(player2);
-            console.log("Golpe!")
-
+            console.log("ataque 1");
         }
     } else {
-        if (critAtk == 3) {
-            console.log("Critical Hit!!!");
+        if (critHit == 3) {
+            console.log("Player 2 Crit hit");
             player2.crit(player1);
         } else {
-
             player2.atack(player1);
-            console.log("Golpe2!!")
-        };
+            console.log("ataque 2")
 
+        }
     };
 
+    console.log("Vida 1:" + player1.health);
+    console.log("Vida 2:" + player2.health);
 
+    let showWinner = document.getElementById("winnerPic");
+    let showWinnerText = document.getElementById("winnerText");
 
-    console.log(player1.health);
-    console.log(player2.health);
+    if (player1.health <= 0) {
+        console.log("player2 wins");
+        showWinner.innerHTML = `<img id="winnerPic" src="fightOfTheMasters/img/${p2.name}.jpg">`;
+        fasingSwitch("fightingFase", "winnerFase");
+    } else if (player2.health <= 0) {
+        console.log("Player1 wins");
+        showWinner.innerHTML = `<img id="winnerPic" src="fightOfTheMasters/img/${p1.name}.jpg">`;
+        fasingSwitch("fightingFase", "winnerFase");
+
+    };
 };
+
+let playAgain = document.getElementById("playAgain")
+
 
 //funciones
 

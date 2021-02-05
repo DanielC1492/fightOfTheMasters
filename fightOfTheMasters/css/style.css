@@ -48,11 +48,17 @@
     filter: grayscale(100%);
 }
 
-.estiloGuerrero {
+.warriorStyle {
     border: solid 0.5em red;
     margin: auto;
 }
 
-.estiloGuerrero img {
+.warriorStyle img {
     width: 6em;
+}
+
+#playAgain {
+    height: 3em;
+    width: 4em;
+    background-color: deeppink;
 }
