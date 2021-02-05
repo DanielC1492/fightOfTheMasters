@@ -1,16 +1,11 @@
-//Botón de ataque responde
+//variables
 
-let atk = () => {
-    let turn = Math.floor(Math.random() * 2);
-    let critHit = Math.floor(Math.random() * 5);
+let p1 = "";
+let p2 = "";
+let p3 = "";
+let p4 = "";
 
-    if (turn = 0)  {
-        if (critHit == 5) {
-            console.log("Critical Hit!!!");
-            player1.
-        }
-    }
-};
+
 
 let resetGame = () => {
     let initHealth = 1000;
@@ -30,21 +25,21 @@ class Leyenda {
         this.stamina = Math.floor(agility * (strength / 1.5));
     };
 
-    ataque(enemy) {
-        enemy.health -= (this.strength - enemy.defense) * Math.floor(Math.random() * 6);
+    atack(enemy) {
+        enemy.health += (this.strength - enemy.defense) * Math.floor(Math.random() * 6);
     };
 
     crit(enemy) {
-        enemy.health -= (this.strength - enemy.defense) * this.stamina / Math.floor(Math.random() * 11);
+        enemy.health -= this.strength;
     }
 };
 
 //Instancias
 
-let player1 = new Leyenda("sonic", 1000, 200, 250, 400);
-let player2 = new Leyenda("samus", 1000, 250, 300, 300);
-let player3 = new Leyenda("mario", 1000, 200, 350, 200);
-let player4 = new Leyenda("megaman", 1000, 300, 200, 350);
+let player1 = new Leyenda("sonic", 1000, 200, 300, 400);
+let player2 = new Leyenda("samus", 1000, 250, 350, 300);
+let player3 = new Leyenda("mario", 1000, 200, 400, 200);
+let player4 = new Leyenda("megaman", 1000, 300, 250, 350);
 
 let select = (playerTag) => {
     //console.log("Has seleccionado a..." + character);
@@ -95,17 +90,37 @@ let select = (playerTag) => {
 };
 
 
+let atk = () => {
+    let turn = Math.floor(Math.random() * 2);
+    let critAtk = Math.floor(Math.random() * 7);
 
-//variables
+    if (turn = 0)  {
+        if (critAtk == 3) {
+            console.log("Critical Hit!!!");
+            player1.crit(player2);
+        } else {
 
-let p1 = "";
-let p2 = "";
-let p3 = "";
-let p4 = "";
+            player1.atack(player2);
+            console.log("Golpe!")
 
-//Seleccionar contrincantes funciona
+        }
+    } else {
+        if (critAtk == 3) {
+            console.log("Critical Hit!!!");
+            player2.crit(player1);
+        } else {
+
+            player2.atack(player1);
+            console.log("Golpe2!!")
+        };
+
+    };
 
 
+
+    console.log(player1.health);
+    console.log(player2.health);
+};
 
 //funciones
 
