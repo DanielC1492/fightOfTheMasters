@@ -27,17 +27,13 @@
     align-content: center;
 }
 
-#sonicPic {
-    width: 6em;
-}
-
-#samusPic {
-    width: 6em;
-}
-
 .fighter {
     border: solid 0.5em red;
     margin: auto;
+}
+
+.fighter img {
+    width: 6em;
 }
 
 .pegarClick {
@@ -48,8 +44,15 @@
 }
 
 .selected {
-    border: solid 0.5em red;
-    margin: auto;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+.estiloGuerrero {
+    border: solid 0.5em red;
+    margin: auto;
+}
+
+.estiloGuerrero img {
+    width: 6em;
 }

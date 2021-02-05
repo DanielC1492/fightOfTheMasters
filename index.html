@@ -1,35 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fight of the masters</title>
     <link href="fightOfTheMasters/css/style.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="background">
         <div class="general1" id="chosingFase" style="display: block">
             <div class="fighters">
-                <div class="fighter" id="sonic" onclick="select('sonic')" ><img src="fightOfTheMasters/img/sonic.jpg" id="sonicPic"></div>
-                <div class="fighter" id="samus" onclick="select('samus')" ><img src="fightOfTheMasters/img/samus.jpg" id="samusPic"></div>
-                <div class="fighter" id="mario" onclick="select('mario')" ><img src="fightOfTheMasters/img/mario.jpg" id="samusPic"></div>
-                <div class="fighter" id="megaman" onclick="select('megaman')" ><img src="fightOfTheMasters/img/megaman.jpg" id="samusPic"></div>
+                <div class="fighter" id="sonic" onclick="select('sonic')"><img src="fightOfTheMasters/img/sonic.jpg" id="sonicPic"></div>
+                <div class="fighter" id="samus" onclick="select('samus')"><img src="fightOfTheMasters/img/samus.jpg" id="samusPic"></div>
+                <div class="fighter" id="mario" onclick="select('mario')"><img src="fightOfTheMasters/img/mario.jpg" id="samusPic"></div>
+                <div class="fighter" id="megaman" onclick="select('megaman')"><img src="fightOfTheMasters/img/megaman.jpg" id="samusPic"></div>
 
-                
-            </div>  
+
+            </div>
             <div class="mensajeElegir">CHOOSE YOUR MASTERS!!!!</div>
             <div id="personaje1"></div>
             <div id="personaje2"></div>
-            </div>
         </div>
         <div class="general2" id="fightingFase" style="display: none">
-            <div class="guerrero1"><div class="stats1"></div>
+            <div id="guerrero1">
             </div>
-            <div class="guerrero2"><div class="stats2"></div>
+            <div id="guerrero2">
             </div>
-            <div class="pegarClick" onclick="atk()">
+            <div class="pegarClick" onclick="atk()"></div>
         </div>
     </div>
-<script src="/fightOfTheMasters/js/main.js"></script>
+    <script src="fightOfTheMasters/js/main.js"></script>
 </body>
