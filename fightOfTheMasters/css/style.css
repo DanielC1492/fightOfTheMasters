@@ -10,7 +10,7 @@
     height: 40em;
     margin: auto;
     margin-left: 15em;
-    margin-top: 5em;
+    margin-top: 15em;
     color: rgb(101, 255, 101);
     font-family: 'Press Start 2P';
 }
@@ -42,21 +42,20 @@
 }
 
 .pegarClick {
-    width: 3em;
-    height: 3em;
-    background-color: chartreuse;
     margin: auto;
     border-radius: 100%;
 }
 
 .fightButton {
     height: 6em;
-    width: 6em;
+    width: 8em;
+    justify-self: center;
+    margin-top: 20em;
 }
 
 .fightButton:active {
     height: 5.9em;
-    width: 5.7em;
+    width: 7.7em;
     text-shadow: cornflowerblue;
 }
 
@@ -147,12 +146,27 @@
 
 .resetButton {
     display: flex;
+    flex-direction: row;
 }
 
 #reset {
-    height: 5em;
-    width: 5em;
+    margin-top: 15em;
+    height: 10em;
+    width: 10em;
     border-radius: 100%;
     justify-self: center;
+    margin: auto;
     justify-content: center;
+    background-color: crimson;
+    background: linear-gradient(crimson, rgba(255, 0, 51, 0.37));
+}
+
+.choosenText {
+    font-size: x-large;
+    color: deeppink;
+}
+
+#segaPic {
+    height: 10em;
+    width: 10em;
 }
