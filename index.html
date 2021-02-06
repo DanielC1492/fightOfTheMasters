@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fight of the masters</title>
     <link href="fightOfTheMasters/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     </style>
@@ -22,8 +23,8 @@
             </div>
 
             <div class="imagenesConsolas">
-                <div class="segaImg"><img src="fightOfTheMasters/img/sega.jpg" id="segaPic"></div>
-                <div class="nintendoImg"><img src="fightOfTheMasters/img/nintendo.png" id="nintendoPic"></div>
+                <div id="segaImg" onclick="segaPlay()"><audio id="play" src="fightOfTheMasters/sounds/PUNCH.mp3"></audio><img src="fightOfTheMasters/img/sega.jpg" id="segaPic"></div>
+                <div id="nintendoImg" onclick="nintendoPlay()"><audio id="play" src="fightOfTheMasters/sounds/PUNCH.mp3"></audio><img src="fightOfTheMasters/img/nintendo.png" id="nintendoPic"></div>
             </div>
 
             <div class="mensajeElegir">CHOOSE YOUR MASTERS!!!!</div>
@@ -39,8 +40,14 @@
                 <div id="warrior2">
                 </div>
             </div>
-
-            <div class="pegarClick" onclick="atk()"><img src="fightOfTheMasters/img/fight.jpg" class="fightButton"></div>
+            <div class="pegarClick" id="hitClick" onclick="atk() ,playSound()">
+                <img src="fightOfTheMasters/img/fight.jpg" class="fightButton">
+                <audio id="play" src="fightOfTheMasters/sounds/PUNCH.mp3"></audio>
+            </div>
+            <div class="imagenesConsolas">
+                <div class="segaImg"><img src="fightOfTheMasters/img/sega.jpg" id="segaPic"></div>
+                <div class="nintendoImg"><img src="fightOfTheMasters/img/nintendo.png" id="nintendoPic"></div>
+            </div>
         </div>
         <div class="general3" id="winnerFase" onclick="fasingSwitch()" style="display: none">
             <div id="winnerPic"></div>

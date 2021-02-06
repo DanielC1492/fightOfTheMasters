@@ -5,10 +5,6 @@ let p2 = "";
 let p3 = "";
 let p4 = "";
 
-//reset
-
-
-
 //Clases
 
 class Leyenda {
@@ -100,9 +96,6 @@ let fasingSwitch = (faseNow, faseThen) => {
     nextFase.style.display = "flex";
 };
 
-//Reset
-
-
 //delay function
 
 const resolveIn = delay =>
@@ -113,7 +106,6 @@ const resolveIn = delay =>
 let atk = () => {
 
     let changingHealth = document.getElementsByClassName("health");
-
     let turno = Math.floor(Math.random() * 2);
     let critHit = Math.floor(Math.random() * 5);
 
@@ -162,7 +154,6 @@ let atk = () => {
 
 };
 
-
 const reset = document.getElementById('reset');
 reset.addEventListener('click', () => {
     window.location.reload();
@@ -175,4 +166,16 @@ let allPlayers = {
     "samus": player2,
     "mario": player3,
     "megaman": player4
+};
+
+function playSound() {
+    document.getElementById('play').play();
+};
+
+function nintendoPlay() {
+    document.getElementById('nintendoImg').play();
+};
+
+function segaPlay() {
+    document.getElementById('segaImg').play();
 };

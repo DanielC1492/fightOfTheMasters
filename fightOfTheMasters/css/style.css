@@ -10,7 +10,7 @@
     height: 40em;
     margin: auto;
     margin-left: 15em;
-    margin-top: 15em;
+    margin-top: 5em;
     color: rgb(101, 255, 101);
     font-family: 'Press Start 2P';
 }
@@ -50,7 +50,7 @@
     height: 6em;
     width: 8em;
     justify-self: center;
-    margin-top: 20em;
+    margin-top: 5em;
 }
 
 .fightButton:active {
@@ -166,7 +166,25 @@
     color: deeppink;
 }
 
+.imagenesConsolas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5em;
+}
+
 #segaPic {
-    height: 10em;
-    width: 10em;
+    height: 15em;
+    width: 20em;
+    margin: auto;
+    margin-right: 5em;
+    margin-top: 5em;
+}
+
+#nintendoPic {
+    height: 15em;
+    width: 20em;
+    margin: auto;
+    margin-left: 5em;
+    margin-top: 5em;
 }
