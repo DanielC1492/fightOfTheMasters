@@ -5,16 +5,12 @@ let p2 = "";
 let p3 = "";
 let p4 = "";
 
+//reset
 
 
-let resetGame = () => {
-    let initHealth = 1000;
-
-    player1.vida = initHealth;
-    player2.vida = initHealth;
-};
 
 //Clases
+
 class Leyenda {
     constructor(name, health, strength, defense, agility, stamina, crit) {
         this.name = name;
@@ -34,15 +30,16 @@ class Leyenda {
     };
 };
 
-//Instancias
+//Instances
 
-let player1 = new Leyenda("sonic", 1000, 200, 300, 400);
-let player2 = new Leyenda("samus", 1000, 250, 350, 300);
-let player3 = new Leyenda("mario", 1000, 200, 400, 200);
-let player4 = new Leyenda("megaman", 1000, 300, 250, 350);
+let player1 = new Leyenda("SONIC", 1000, 200, 300, 400);
+let player2 = new Leyenda("SAMUS", 1000, 250, 350, 300);
+let player3 = new Leyenda("MARIO", 1000, 200, 400, 200);
+let player4 = new Leyenda("MEGAMAN", 1000, 300, 250, 350);
+
+//Character selection
 
 let select = (playerTag) => {
-    //console.log("Has seleccionado a..." + character);
     if (p1 == "") {
         p1 = allPlayers[playerTag];
 
@@ -54,8 +51,9 @@ let select = (playerTag) => {
         let personaje2 = document.getElementById("personaje2");
 
         personaje2.innerHTML = `You have chosen ${p2.name}`;
-
-        fasingSwitch("chosingFase", "fightingFase");
+        resolveIn(2000).then(delay => {
+            fasingSwitch("chosingFase", "fightingFase");
+        });
 
         let warrior1 = document.getElementById("warrior1");
         let warrior2 = document.getElementById("warrior2");
@@ -90,15 +88,28 @@ let select = (playerTag) => {
 
 };
 
+//fase switching
+
+let fasingSwitch = (faseNow, faseThen) => {
+    let currentFase = document.getElementById(faseNow);
+
+    let nextFase = document.getElementById(faseThen);
 
 
+    currentFase.style.display = "none";
+    nextFase.style.display = "flex";
+};
+
+//delay function
 
 const resolveIn = delay =>
     new Promise(res => setTimeout(() => res(delay), delay));
 
-//Funcion atacar
+//Combat
 
 let atk = () => {
+
+    let changingHealth = document.getElementsByClassName("health");
 
     let turno = Math.floor(Math.random() * 2);
     let critHit = Math.floor(Math.random() * 5);
@@ -111,6 +122,7 @@ let atk = () => {
 
             player1.atack(player2);
             console.log("ataque 1");
+            changingHealth.innerHTML = `<div class="health">${p1.health}</div>`;
         }
     } else {
         if (critHit == 3) {
@@ -119,7 +131,6 @@ let atk = () => {
         } else {
             player2.atack(player1);
             console.log("ataque 2")
-
         }
     };
 
@@ -132,32 +143,38 @@ let atk = () => {
     if (player1.health <= 0) {
         console.log("player2 wins");
         showWinner.innerHTML = `<img id="winnerPic" src="fightOfTheMasters/img/${p2.name}.jpg">`;
+        showWinnerText.innerHTML = `<div id="winnerText>${p2.name} WINS!!!</div>`;
         fasingSwitch("fightingFase", "winnerFase");
+        resolveIn(5000).then(delay => {
+            fasingSwitch("winnerFase", "chosingFase");
+        });
     } else if (player2.health <= 0) {
         console.log("Player1 wins");
         showWinner.innerHTML = `<img id="winnerPic" src="fightOfTheMasters/img/${p1.name}.jpg">`;
-        fasingSwitch("fightingFase", "winnerFase");
+        showWinnerText.innerHTML = `<div id="winnerText>${p1.name} WINS!!!</div>`;
 
+        let playAgain = document.getElementById("winnerFase");
+        fasingSwitch("fightingFase", "winnerFase");
+        resolveIn(5000).then(delay => {
+            fasingSwitch("winnerFase", "chosingFase");
+            let resetGame = () => {
+                let initHealth = 1000;
+
+                player1 = "";
+                player2 = "";
+
+                player1.vida = initHealth;
+                player2.vida = initHealth;
+            };
+
+        });
     };
 };
 
-let playAgain = document.getElementById("playAgain")
-
-
-//funciones
-
-let fasingSwitch = (faseNow, faseThen) => {
-    let currentFase = document.getElementById(faseNow);
-
-    let nextFase = document.getElementById(faseThen);
-
-
-    currentFase.style.display = "none";
-    nextFase.style.display = "block";
-};
 
 
 //traductor
+
 let allPlayers = {
     "sonic": player1,
     "samus": player2,

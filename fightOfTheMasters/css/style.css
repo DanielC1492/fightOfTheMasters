@@ -5,10 +5,14 @@
 }
 
 .mensajeElegir {
+    font-size: xx-large;
+    width: 40em;
+    height: 40em;
     margin: auto;
-    margin-left: 20em;
+    margin-left: 15em;
     margin-top: 5em;
     color: rgb(101, 255, 101);
+    font-family: 'Press Start 2P';
 }
 
 .general1 {
@@ -30,10 +34,11 @@
 .fighter {
     border: solid 0.5em red;
     margin: auto;
+    border-radius: 20%;
 }
 
 .fighter img {
-    width: 6em;
+    width: 10em;
 }
 
 .pegarClick {
@@ -41,6 +46,7 @@
     height: 6em;
     background-color: chartreuse;
     margin: auto;
+    border-radius: 100%;
 }
 
 .selected {
@@ -49,16 +55,72 @@
 }
 
 .warriorStyle {
-    border: solid 0.5em red;
-    margin: auto;
+    border: solid 0.5em rgba(134, 101, 101, 0.089);
+    justify-content: center;
 }
 
 .warriorStyle img {
-    width: 6em;
+    width: 10em;
 }
 
-#playAgain {
-    height: 3em;
-    width: 4em;
-    background-color: deeppink;
+.general2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.oponents {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    margin: auto;
+}
+
+#warrior1 {
+    margin-top: 2em;
+    margin: auto;
+    justify-content: center;
+}
+
+#warrior2 {
+    width: 20em;
+    height: 20em;
+    margin-top: 2em;
+    margin: auto;
+}
+
+.name {
+    color: rgb(255, 0, 0);
+}
+
+.health {
+    color: chartreuse;
+}
+
+.strength {
+    color: chartreuse;
+}
+
+.defense {
+    color: chartreuse;
+}
+
+.agility {
+    color: chartreuse;
+}
+
+.stamina {
+    color: chartreuse;
+}
+
+#winnerPic {
+    height: 20em;
+    width: 20em;
+    justify-self: center;
+}
+
+#winnerText {
+    font-size: xx-large;
+    color: chartreuse;
+    font-family: 'Press Start 2P';
 }

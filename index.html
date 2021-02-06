@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fight of the masters</title>
     <link href="fightOfTheMasters/css/style.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
 </head>
 
 <body>
-    <div class="background">
+    <div class="background" style="background-image: url('https://wallpapercave.com/wp/wp3284832.gif') ">
         <div class="general1" id="chosingFase" style="display: block">
             <div class="fighters">
                 <div class="fighter" id="sonic" onclick="select('sonic')"><img src="fightOfTheMasters/img/sonic.jpg" id="sonicPic"></div>
@@ -24,16 +27,18 @@
             <div id="personaje2"></div>
         </div>
         <div class="general2" id="fightingFase" style="display: none">
-            <div id="warrior1">
+            <div class="oponents">
+                <div id="warrior1">
+                </div>
+                <div id="warrior2">
+                </div>
             </div>
-            <div id="warrior2">
-            </div>
+
             <div class="pegarClick" onclick="atk()"></div>
         </div>
-        <div class="general3" id="winnerFase" style="display: none">
+        <div class="general3" id="winnerFase" onclick="fasingSwitch()" style="display: none">
             <div id="winnerPic"></div>
             <div id="winnerText"></div>
-            <div id="playAgain" onclick="fasingSwitch('chosingFase')"></div>
         </div>
     </div>
     <script src="fightOfTheMasters/js/main.js"></script>
