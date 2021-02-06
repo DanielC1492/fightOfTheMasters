@@ -100,6 +100,9 @@ let fasingSwitch = (faseNow, faseThen) => {
     nextFase.style.display = "flex";
 };
 
+//Reset
+
+
 //delay function
 
 const resolveIn = delay =>
@@ -122,7 +125,7 @@ let atk = () => {
 
             player1.atack(player2);
             console.log("ataque 1");
-            changingHealth.innerHTML = `<div class="health">${p1.health}</div>`;
+
         }
     } else {
         if (critHit == 3) {
@@ -134,6 +137,7 @@ let atk = () => {
         }
     };
 
+    changingHealth.innerHTML = `<div class="health">${p1.health}</div>`;
     console.log("Vida 1:" + player1.health);
     console.log("Vida 2:" + player2.health);
 
@@ -143,7 +147,7 @@ let atk = () => {
     if (player1.health <= 0) {
         console.log("player2 wins");
         showWinner.innerHTML = `<img id="winnerPic" src="fightOfTheMasters/img/${p2.name}.jpg">`;
-        showWinnerText.innerHTML = `<div id="winnerText>${p2.name} WINS!!!</div>`;
+        showWinnerText.innerHTML = `<div id="winnerText">${p2.name} WINS!!!</div>`;
         fasingSwitch("fightingFase", "winnerFase");
         resolveIn(5000).then(delay => {
             fasingSwitch("winnerFase", "chosingFase");
@@ -151,27 +155,18 @@ let atk = () => {
     } else if (player2.health <= 0) {
         console.log("Player1 wins");
         showWinner.innerHTML = `<img id="winnerPic" src="fightOfTheMasters/img/${p1.name}.jpg">`;
-        showWinnerText.innerHTML = `<div id="winnerText>${p1.name} WINS!!!</div>`;
-
-        let playAgain = document.getElementById("winnerFase");
+        showWinnerText.innerHTML = `<div id="winnerText">${p1.name} WINS!!!</div>`;
         fasingSwitch("fightingFase", "winnerFase");
-        resolveIn(5000).then(delay => {
-            fasingSwitch("winnerFase", "chosingFase");
-            let resetGame = () => {
-                let initHealth = 1000;
 
-                player1 = "";
-                player2 = "";
-
-                player1.vida = initHealth;
-                player2.vida = initHealth;
-            };
-
-        });
     };
+
 };
 
 
+const reset = document.getElementById('reset');
+reset.addEventListener('click', () => {
+    window.location.reload();
+})
 
 //traductor
 
