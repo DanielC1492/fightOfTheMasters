@@ -173,9 +173,9 @@ function playSound() {
 };
 
 function nintendoPlay() {
-    document.getElementById('nintendoImg').play();
+    document.getElementById('niplayNintendo').play();
 };
 
 function segaPlay() {
-    document.getElementById('segaImg').play();
+    document.getElementById('playSega').play();
 };
