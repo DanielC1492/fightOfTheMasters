@@ -10,7 +10,7 @@
     height: 40em;
     margin: auto;
     margin-left: 15em;
-    margin-top: 5em;
+    margin-top: 2em;
     color: rgb(101, 255, 101);
     font-family: 'Press Start 2P';
 }
@@ -179,6 +179,11 @@
     margin: auto;
     margin-right: 5em;
     margin-top: 5em;
+}
+
+#segaImg:hover {
+    height: 13em;
+    width: 18em;
 }
 
 #nintendoPic {

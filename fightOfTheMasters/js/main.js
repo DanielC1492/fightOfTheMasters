@@ -173,7 +173,7 @@ function playSound() {
 };
 
 function nintendoPlay() {
-    document.getElementById('niplayNintendo').play();
+    document.getElementById('playNintendo').play();
 };
 
 function segaPlay() {
